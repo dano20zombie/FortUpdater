@@ -14,6 +14,7 @@ private:
 	uintptr_t GetObjectName = NULL;
 	uintptr_t GetNameByIndex = NULL;
 	uintptr_t FnFree = NULL;
+	int ObjectsCount = 0;
 
 	void cFixName(char* Name);
 	void FreeObjName(uintptr_t Address);

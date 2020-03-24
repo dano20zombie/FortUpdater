@@ -77,7 +77,7 @@ bool FortUpdater::Init(uintptr_t UObjectArray, uintptr_t GetObjectName, uintptr_
 	if (!UObjectArray || !GetObjectName || !GetNameByIndex || !FnFree) return false;
 
 	this->ObjectsCount = *(DWORD*)(UObjectArray + 0x14);
-	if (this->ObjectCount > 0x9000)
+	if (this->ObjectsCount > 0x9000)
 		this->ObjectsCount = 0x9000;
 
 	uintptr_t deref_1 = *(uintptr_t*)UObjectArray;

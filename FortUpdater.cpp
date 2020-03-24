@@ -76,6 +76,10 @@ bool FortUpdater::Init(uintptr_t UObjectArray, uintptr_t GetObjectName, uintptr_
 {
 	if (!UObjectArray || !GetObjectName || !GetNameByIndex || !FnFree) return false;
 
+	this->ObjectsCount = *(DWORD*)(UObjectArray + 0x14);
+	if (this->ObjectCount > 0x9000)
+		this->ObjectsCount = 0x9000;
+
 	uintptr_t deref_1 = *(uintptr_t*)UObjectArray;
 	if (IsBadReadPtr((void*)deref_1, sizeof(uintptr_t))) return false;
 
@@ -92,7 +96,7 @@ bool FortUpdater::Init(uintptr_t UObjectArray, uintptr_t GetObjectName, uintptr_
 
 DWORD FortUpdater::FindOffset(const char* Class, const char* varName)
 {
-	for (DWORD i = 0x0; i < 0x9000; i++)
+	for (DWORD i = 0x0; i < this->ObjectsCount; i++)
 	{
 		auto CurrentObject = *(uintptr_t*)(this->UObjectArray + (i * 0x18));
 

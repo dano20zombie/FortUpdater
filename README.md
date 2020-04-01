@@ -8,6 +8,7 @@ Security info
 ---------------
 In this release i don't use Return Address's spoof.
 You must implement a spoofer to "GetObjectName" and "GetNameByIndex" funcs to be UNDETECTED for a long time.
+You must also use an alternative to IsBadReadPtr since it is DETECTED on BattlEye
 
 HOW TO USE
 ---------------

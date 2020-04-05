@@ -190,7 +190,7 @@ char* FortUpdater::fGetObjectName(uintptr_t Object)
 
 	cFixName(return_string);
 
-	return (char*)std::string(tmp.begin(), tmp.end()).c_str();
+	return return_string;
 }
 
 char* FortUpdater::fGetNameByIndex(int Index)
